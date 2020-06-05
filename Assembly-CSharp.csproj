@@ -68,6 +68,7 @@
     <Compile Include="Assets\MyAssets\Skyboxes\BOXOPHOBIC\Utils\PropertyDrawers\BMessageAttribute.cs" />
     <Compile Include="Assets\MyAssets\Skyboxes\BOXOPHOBIC\Utils\PropertyDrawers\BRangeOptionsAttribute.cs" />
     <Compile Include="Assets\MyAssets\Skyboxes\BOXOPHOBIC\Utils\PropertyDrawers\BRangeSimpleAttribute.cs" />
+    <Compile Include="Assets\Scripts\CameraMotor.cs" />
     <Compile Include="Assets\Scripts\PlayerMotor.cs" />
     <None Include="Assets\MyAssets\Skyboxes\BOXOPHOBIC\Utils\Shaders\Unlit Prototype Ground.shader" />
     <None Include="Assets\MyAssets\Skyboxes\BOXOPHOBIC\Skybox Cubemap Extended\Core\Shaders\Skybox Cubemap Extended.shader" />

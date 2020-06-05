@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{252BF810-FB95-4C70-F481-C0FECC70BE9D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMotor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CameraMotor.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerMotor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMotor.cs" Line="90" Column="1" />
+      <File FileName="Assets/Scripts/CameraMotor.cs" Line="15" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -9,7 +10,7 @@
           <Node name="JuanD - Quest for Wisdom" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PlayerMotor.cs" selected="True" />
+                <Node name="CameraMotor.cs" selected="True" />
               </Node>
             </Node>
           </Node>
