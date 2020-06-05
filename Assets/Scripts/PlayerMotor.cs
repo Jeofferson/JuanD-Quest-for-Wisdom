@@ -7,23 +7,36 @@ public class PlayerMotor : MonoBehaviour
 
 
     private const float LANE_DISTANCE = 3f;
-    private const float TURN_SPEED = 7f;
 
+    private const float ORIGINAL_SPEED = 10f;
+    private const float TURN_SPEED = ORIGINAL_SPEED * 2f;
+    private const float JUMP_FORCE = 20f;
 
-    // Movement
+    // Movement X
     private int desiredLane = 1;    // 0 = Left, 1 = Middle, 2 = Right;
-    private float jumpForce = 4f;
+
+    // Movement Y
     private float gravity = 12f;
+
+    private float fallForce = JUMP_FORCE / 4f;
     private float verticalVelocity;
-    private float speed = 7f;
+
+    // Movement Z
+    private float speed = ORIGINAL_SPEED;
+
+    // Player
     private CharacterController characterController;
+
+    // Animation
+    private Animator animator;
 
 
     private void Start()
     {
 
         characterController = GetComponent<CharacterController>();
-        
+        animator = GetComponent<Animator>();
+
     }
 
 
@@ -85,15 +98,58 @@ public class PlayerMotor : MonoBehaviour
         #endregion
 
         #region Calculate Y
-        moveVector.y = -0.1f;
+        bool isGrounded = IsGrounded();
+
+        animator.SetBool("IsGrounded", isGrounded);
+
+        if (isGrounded)
+        {
+
+            verticalVelocity = -0.1f;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+
+                Jump();
+
+            }
+
+        }
+        else
+        {
+
+            verticalVelocity -= gravity * (Time.deltaTime * fallForce);
+
+            // Fast falling mechanic
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+
+                verticalVelocity = -JUMP_FORCE;
+
+            }
+
+        }
+
+        moveVector.y = verticalVelocity;
         #endregion
 
         #region Calculate Z
         moveVector.z = speed;
         #endregion
 
-        // Move the character
+        // Move the player
         characterController.Move(moveVector * Time.deltaTime);
+
+        // Face the lane that the player will switch into
+        Vector3 direction = characterController.velocity;
+        direction.y = 0;
+
+        if (direction != Vector3.zero)
+        {
+
+            transform.forward = Vector3.Lerp(transform.forward, direction, TURN_SPEED);
+
+        }
 
     }
 
@@ -103,6 +159,35 @@ public class PlayerMotor : MonoBehaviour
 
         desiredLane += isGoingRight ? 1 : -1;
         desiredLane = Mathf.Clamp(desiredLane, 0, 2);
+
+    }
+
+
+    private void Jump()
+    {
+
+        animator.SetTrigger("Jump");
+        verticalVelocity = JUMP_FORCE;
+
+    }
+
+
+
+    private bool IsGrounded()
+    {
+
+        Ray groundRay = new Ray(
+            new Vector3(
+                characterController.bounds.center.x,
+                (characterController.bounds.center.y - characterController.bounds.extents.y) + 0.2f,
+                characterController.bounds.center.z
+            ),
+            Vector3.down
+        );
+
+        Debug.DrawRay(groundRay.origin, groundRay.direction, Color.red, 5.0f);
+
+        return Physics.Raycast(groundRay, 0.2f + 0.1f);
 
     }
 

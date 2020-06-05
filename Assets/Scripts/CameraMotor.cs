@@ -7,23 +7,21 @@ public class CameraMotor : MonoBehaviour
 
 
     public Transform lookAt;
-    public Vector3 offset = new Vector3(0, 5f, -10f);
-
-
-    private void Start()
-    {
-
-        transform.position = lookAt.position + offset;
-
-    }
+    public Vector3 offset;
 
 
     private void LateUpdate()
     {
 
         Vector3 desiredPosition = lookAt.position + offset;
-        desiredPosition.x = 0;
-        transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime); 
+
+        Vector3 desiredPositionWithLerp = Vector3.Lerp(transform.position, desiredPosition, (Time.deltaTime * 2f));
+
+        // To remove the lerp when jumping or changing lanes
+        desiredPositionWithLerp.x = desiredPosition.x;
+        desiredPositionWithLerp.y = desiredPosition.y;
+
+        transform.position = desiredPositionWithLerp;
 
     }
 
