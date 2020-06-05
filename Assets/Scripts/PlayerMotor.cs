@@ -43,7 +43,22 @@ public class PlayerMotor : MonoBehaviour
     private void Update()
     {
 
-        // Gather the inputs on which lane we should be
+        // Identify which lane (swiping)
+        if (MobileInput.Instance.SwipeLeft)
+        {
+
+            MoveLane(false);
+
+        }
+
+        if (MobileInput.Instance.SwipeRight)
+        {
+
+            MoveLane(true);
+
+        }
+
+        // Identify which lane (using keyboard)
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
 
@@ -58,7 +73,7 @@ public class PlayerMotor : MonoBehaviour
 
         }
 
-        // Calculate where we should be in the future
+        // Determine target  position
         Vector3 targetPosition = transform.position.z * Vector3.forward;
 
         switch (desiredLane)
@@ -107,7 +122,7 @@ public class PlayerMotor : MonoBehaviour
 
             verticalVelocity = -0.1f;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (MobileInput.Instance.SwipeUp)
             {
 
                 Jump();
@@ -120,8 +135,8 @@ public class PlayerMotor : MonoBehaviour
 
             verticalVelocity -= gravity * (Time.deltaTime * fallForce);
 
-            // Fast falling mechanic
-            if (Input.GetKeyDown(KeyCode.Space))
+            // Fast fall
+            if (MobileInput.Instance.SwipeDown)
             {
 
                 verticalVelocity = -JUMP_FORCE;
