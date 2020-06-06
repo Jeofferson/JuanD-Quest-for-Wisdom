@@ -10,6 +10,8 @@ public class PlayerMotor : MonoBehaviour
     private const float TURN_SPEED = ORIGINAL_SPEED * 2f;
     private const float JUMP_FORCE = 20f;
 
+    private bool hasStartedRunning;
+
     // Movement X
     private int desiredLane = 1;    // 0 = Left, 1 = Middle, 2 = Right;
 
@@ -40,6 +42,8 @@ public class PlayerMotor : MonoBehaviour
 
     private void Update()
     {
+
+        if (!hasStartedRunning) { return; }
 
         // Identify which lane (swiping)
         if (MobileInput.Instance.SwipeLeft)
@@ -163,6 +167,14 @@ public class PlayerMotor : MonoBehaviour
             transform.forward = Vector3.Lerp(transform.forward, direction, TURN_SPEED);
 
         }
+
+    }
+
+
+    public void StartRunning()
+    {
+
+        hasStartedRunning = true;
 
     }
 
