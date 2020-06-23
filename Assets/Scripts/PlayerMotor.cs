@@ -248,6 +248,18 @@ public class PlayerMotor : MonoBehaviour
 
         animator.SetTrigger("Slide");
 
+        characterController.center = new Vector3(characterController.center.x, characterController.center.y / 2, characterController.center.z);
+        characterController.height /= 2; 
+
+    }
+
+
+    private void FinishSliding()
+    {
+
+        characterController.center = new Vector3(characterController.center.x, characterController.center.y * 2, characterController.center.z);
+        characterController.height *= 2;
+
     }
 
 
