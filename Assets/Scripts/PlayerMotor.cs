@@ -24,6 +24,8 @@ public class PlayerMotor : MonoBehaviour
     // Movement Z
     private float speed = ORIGINAL_SPEED;
 
+    private CameraMotor cameraMotor;
+
     // Player
     private CharacterController characterController;
 
@@ -36,6 +38,8 @@ public class PlayerMotor : MonoBehaviour
 
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+
+        cameraMotor = FindObjectOfType<CameraMotor>();
 
     }
 
@@ -130,6 +134,12 @@ public class PlayerMotor : MonoBehaviour
                 Jump();
 
             }
+            else if (MobileInput.Instance.SwipeDown)
+            {
+
+                Slide();
+
+            }
 
         }
         else
@@ -171,10 +181,27 @@ public class PlayerMotor : MonoBehaviour
     }
 
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+
+        switch (hit.gameObject.tag)
+        {
+
+            case "Obstacle":
+                Die();
+                cameraMotor.Die();
+                break;
+
+        }
+
+    }
+
+
     public void StartRunning()
     {
 
         hasStartedRunning = true;
+        animator.SetTrigger("StartRunning");
 
     }
 
@@ -186,16 +213,6 @@ public class PlayerMotor : MonoBehaviour
         desiredLane = Mathf.Clamp(desiredLane, 0, 2);
 
     }
-
-
-    private void Jump()
-    {
-
-        animator.SetTrigger("Jump");
-        verticalVelocity = JUMP_FORCE;
-
-    }
-
 
 
     private bool IsGrounded()
@@ -213,6 +230,32 @@ public class PlayerMotor : MonoBehaviour
         Debug.DrawRay(groundRay.origin, groundRay.direction, Color.red, 5.0f);
 
         return Physics.Raycast(groundRay, 0.2f + 0.1f);
+
+    }
+
+
+    private void Jump()
+    {
+
+        animator.SetTrigger("Jump");
+        verticalVelocity = JUMP_FORCE;
+
+    }
+
+
+    private void Slide()
+    {
+
+        animator.SetTrigger("Slide");
+
+    }
+
+
+    private void Die()
+    {
+
+        hasStartedRunning = false;
+        animator.SetTrigger("Die");
 
     }
 

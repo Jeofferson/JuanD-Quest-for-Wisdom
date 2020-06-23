@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using TMPro;
+﻿using TMPro;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private bool hasStartedRunning;
 
     private PlayerMotor playerMotor;
+    private CameraMotor cameraMotor;
 
     // UI Fields
     private float score;
@@ -21,9 +22,11 @@ public class GameManager : MonoBehaviour
     {
 
         Instance = this;
-        UpdateStats();
 
         playerMotor = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMotor>();
+        cameraMotor = FindObjectOfType<CameraMotor>();
+
+        UpdateStats();
 
     }
 
@@ -35,7 +38,9 @@ public class GameManager : MonoBehaviour
         {
 
             hasStartedRunning = true;
+
             playerMotor.StartRunning();
+            cameraMotor.hasStartedRunning = true;
 
         }
 

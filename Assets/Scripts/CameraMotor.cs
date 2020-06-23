@@ -4,12 +4,18 @@ public class CameraMotor : MonoBehaviour
 {
 
 
+    public bool hasStartedRunning;
+
     public Transform lookAt;
     public Vector3 offset;
+
+    public Animator animatorCameraHolder;
 
 
     private void LateUpdate()
     {
+
+        if (!hasStartedRunning) { return; }
 
         Vector3 desiredPosition = lookAt.position + offset;
 
@@ -20,6 +26,15 @@ public class CameraMotor : MonoBehaviour
         desiredPositionWithLerp.y = desiredPosition.y;
 
         transform.position = desiredPositionWithLerp;
+
+    }
+
+
+    public void Die()
+    {
+
+        hasStartedRunning = false;
+        animatorCameraHolder.SetTrigger("Die");
 
     }
 
