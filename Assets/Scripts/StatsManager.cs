@@ -8,6 +8,8 @@ public class StatsManager : MonoBehaviour
     private const int SCORE_INCREASE_OVER_TIME = 1;
     private const int SCORE_INCREASE_BY_COIN = 50;
 
+    private const int MAX_LIFE_VALUE = 30;
+
     private PlayerMotor playerMotor;
 
     private int score;
@@ -35,7 +37,7 @@ public class StatsManager : MonoBehaviour
 
         score = 0;
         coin = 0;
-        life = 30;
+        life = MAX_LIFE_VALUE;
 
         UpdateScore();
         UpdateCoin();
@@ -66,15 +68,15 @@ public class StatsManager : MonoBehaviour
     {
 
         life--;
+        UpdateLife();
 
         if (life <= 0)
         {
 
+            Die();
             playerMotor.Die();
 
         }
-
-        UpdateLife();
 
     }
 
@@ -109,6 +111,15 @@ public class StatsManager : MonoBehaviour
     {
 
         textLife.text = life.ToString();
+
+    }
+
+
+    public void Die()
+    {
+
+        CancelInvoke("RegulateScore");
+        CancelInvoke("RegulateLife");
 
     }
 

@@ -33,12 +33,10 @@ public class PlayerMotor : MonoBehaviour
     // Movement Z
     private float currentSpeed = ORIGINAL_SPEED;
 
-    private CameraMotor cameraMotor;
-
-    // Player
     private CharacterController characterController;
+    private CameraMotor cameraMotor;
+    private StatsManager statsManager;
 
-    // Animation
     private Animator animator;
 
 
@@ -46,9 +44,10 @@ public class PlayerMotor : MonoBehaviour
     {
 
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
-
         cameraMotor = FindObjectOfType<CameraMotor>();
+        statsManager = FindObjectOfType<StatsManager>();
+
+        animator = GetComponent<Animator>();
 
     }
 
@@ -296,6 +295,8 @@ public class PlayerMotor : MonoBehaviour
         hasStartedRunning = false;
 
         cameraMotor.Die();
+        statsManager.Die();
+
         animator.SetTrigger("Die");
 
     }
