@@ -28,6 +28,8 @@ public class PlayerMotor : MonoBehaviour
     private float fallForce = JUMP_FORCE / 4f;
     private float verticalVelocity;
 
+    private bool isSliding;
+
     // Movement Z
     private float currentSpeed = ORIGINAL_SPEED;
 
@@ -144,7 +146,12 @@ public class PlayerMotor : MonoBehaviour
             else if (MobileInput.Instance.SwipeDown)
             {
 
-                Slide();
+                if (!isSliding)
+                {
+
+                    Slide();
+
+                }
 
             }
 
@@ -262,6 +269,8 @@ public class PlayerMotor : MonoBehaviour
     private void ShrinkCharacterController()
     {
 
+        isSliding = true;
+
         characterController.center = new Vector3(characterController.center.x, characterController.center.y / 2, characterController.center.z);
         characterController.height /= 2;
 
@@ -275,6 +284,8 @@ public class PlayerMotor : MonoBehaviour
 
         characterController.center = new Vector3(characterController.center.x, CHARACTER_CONTROLLER_ORIGINAL_CENTER_Y, characterController.center.z);
         characterController.height = CHARACTER_CONTROLLER_ORIGINAL_HEIGHT;
+
+        isSliding = false;
 
     }
 
