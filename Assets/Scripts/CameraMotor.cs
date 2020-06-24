@@ -4,7 +4,7 @@ public class CameraMotor : MonoBehaviour
 {
 
 
-    public bool hasStartedRunning;
+    private bool hasStartedRunning;
 
     public MainCamera mainCamera;
 
@@ -26,6 +26,14 @@ public class CameraMotor : MonoBehaviour
         desiredPositionWithLerp.y = desiredPosition.y;
 
         transform.position = desiredPositionWithLerp;
+
+    }
+
+
+    public void StartRunning()
+    {
+
+        hasStartedRunning = true;
 
     }
 

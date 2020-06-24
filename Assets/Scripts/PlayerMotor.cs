@@ -290,7 +290,7 @@ public class PlayerMotor : MonoBehaviour
     }
 
 
-    private void Die()
+    public void Die()
     {
 
         hasStartedRunning = false;

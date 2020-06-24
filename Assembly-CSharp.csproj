@@ -69,10 +69,12 @@
     <Compile Include="Assets\MyAssets\Skyboxes\BOXOPHOBIC\Utils\PropertyDrawers\BRangeOptionsAttribute.cs" />
     <Compile Include="Assets\MyAssets\Skyboxes\BOXOPHOBIC\Utils\PropertyDrawers\BRangeSimpleAttribute.cs" />
     <Compile Include="Assets\Scripts\CameraMotor.cs" />
+    <Compile Include="Assets\Scripts\CoinHolder.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MainCamera.cs" />
     <Compile Include="Assets\Scripts\MobileInput.cs" />
     <Compile Include="Assets\Scripts\PlayerMotor.cs" />
+    <Compile Include="Assets\Scripts\StatsManager.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\MyAssets\Skyboxes\BOXOPHOBIC\Utils\Shaders\Unlit Prototype Ground.shader" />
