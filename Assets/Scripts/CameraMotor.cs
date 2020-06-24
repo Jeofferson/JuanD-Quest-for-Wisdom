@@ -6,10 +6,10 @@ public class CameraMotor : MonoBehaviour
 
     public bool hasStartedRunning;
 
+    public MainCamera mainCamera;
+
     public Transform lookAt;
     public Vector3 offset;
-
-    public Animator animatorCameraHolder;
 
 
     private void LateUpdate()
@@ -34,7 +34,8 @@ public class CameraMotor : MonoBehaviour
     {
 
         hasStartedRunning = false;
-        animatorCameraHolder.SetTrigger("Die");
+
+        mainCamera.Die();
 
     }
 

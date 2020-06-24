@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class PlayerMotor : MonoBehaviour
     private const float LANE_DISTANCE = 3f;
 
     private const float ORIGINAL_SPEED = 10f;
+    private readonly List<float> INTERVALS = new List<float> { 3f, 3f };
+    private readonly List<float> SPEED_INCREMENTS = new List<float> { 1.5f, 2f };
     private const float TURN_SPEED = ORIGINAL_SPEED * 2f;
     private const float JUMP_FORCE = 20f;
 
@@ -189,7 +192,6 @@ public class PlayerMotor : MonoBehaviour
 
             case "Obstacle":
                 Die();
-                cameraMotor.Die();
                 break;
 
         }
@@ -267,6 +269,8 @@ public class PlayerMotor : MonoBehaviour
     {
 
         hasStartedRunning = false;
+
+        cameraMotor.Die();
         animator.SetTrigger("Die");
 
     }

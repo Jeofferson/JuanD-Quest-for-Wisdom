@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{252BF810-FB95-4C70-F481-C0FECC70BE9D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMotor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CameraMotor.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="40" Column="70" />
-      <File FileName="Assets/Scripts/PlayerMotor.cs" Line="46" Column="44" />
-      <File FileName="Assets/Scripts/CameraMotor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MainCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CameraMotor.cs" Line="20" Column="24" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMotor.cs" Line="274" Column="36" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,7 +12,7 @@
           <Node name="JuanD - Quest for Wisdom" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PlayerMotor.cs" selected="True" />
+                <Node name="CameraMotor.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -21,7 +22,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f09560f5-cd95-4df2-9003-bf4a2d860c5a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b7f5faa2-3dcf-4825-b2e1-1017ea6e5595" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
