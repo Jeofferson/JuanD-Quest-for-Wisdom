@@ -14,8 +14,6 @@ public class MainCamera : MonoBehaviour
 
         if (!hasPlayerDied) { return; }
 
-        Debug.Log("exe");
-
         transform.LookAt(lookAt);
         
     }

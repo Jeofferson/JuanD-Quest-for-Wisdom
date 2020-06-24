@@ -7,11 +7,15 @@ public class PlayerMotor : MonoBehaviour
 
     private const float LANE_DISTANCE = 3f;
 
+    private const float CHARACTER_CONTROLLER_ORIGINAL_CENTER_Y = .9f;
+    private const float CHARACTER_CONTROLLER_ORIGINAL_HEIGHT = 1.8f;
+
     private const float ORIGINAL_SPEED = 10f;
-    private readonly List<float> INTERVALS = new List<float> { 3f, 3f };
-    private readonly List<float> SPEED_INCREMENTS = new List<float> { 1.5f, 2f };
+    private readonly List<float> SPEED_INCREASE_INTERVALS = new List<float> { 3f, 3f };
+    private readonly List<float> SPEED_INCREASE_MULTIPLIERS = new List<float> { 1.5f, 2f };
     private const float TURN_SPEED = ORIGINAL_SPEED * 2f;
     private const float JUMP_FORCE = 20f;
+    private const float SLIDE_DURATION = 1.167f;
 
     private bool hasStartedRunning;
 
@@ -25,7 +29,7 @@ public class PlayerMotor : MonoBehaviour
     private float verticalVelocity;
 
     // Movement Z
-    private float speed = ORIGINAL_SPEED;
+    private float currentSpeed = ORIGINAL_SPEED;
 
     private CameraMotor cameraMotor;
 
@@ -164,7 +168,7 @@ public class PlayerMotor : MonoBehaviour
         #endregion
 
         #region Calculate Z
-        moveVector.z = speed;
+        moveVector.z = currentSpeed;
         #endregion
 
         // Move the player
@@ -250,17 +254,27 @@ public class PlayerMotor : MonoBehaviour
 
         animator.SetTrigger("Slide");
 
-        characterController.center = new Vector3(characterController.center.x, characterController.center.y / 2, characterController.center.z);
-        characterController.height /= 2; 
+        ShrinkCharacterController();
 
     }
 
 
-    private void FinishSliding()
+    private void ShrinkCharacterController()
     {
 
-        characterController.center = new Vector3(characterController.center.x, characterController.center.y * 2, characterController.center.z);
-        characterController.height *= 2;
+        characterController.center = new Vector3(characterController.center.x, characterController.center.y / 2, characterController.center.z);
+        characterController.height /= 2;
+
+        Invoke("RevertCharacterController", SLIDE_DURATION);
+
+    }
+
+
+    private void RevertCharacterController()
+    {
+
+        characterController.center = new Vector3(characterController.center.x, CHARACTER_CONTROLLER_ORIGINAL_CENTER_Y, characterController.center.z);
+        characterController.height = CHARACTER_CONTROLLER_ORIGINAL_HEIGHT;
 
     }
 

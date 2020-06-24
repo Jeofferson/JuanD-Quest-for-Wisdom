@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
 
-        if (MobileInput.Instance.Tap && !hasStartedRunning)
+        if (!hasStartedRunning && MobileInput.Instance.Tap)
         {
 
             hasStartedRunning = true;
@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
             cameraMotor.hasStartedRunning = true;
 
         }
+
+        if (!hasStartedRunning) { return; }
 
     }
 
