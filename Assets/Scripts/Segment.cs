@@ -43,7 +43,7 @@ public class Segment : MonoBehaviour
     }
 
 
-    public int SegmentId { set; get; }
+    public int SegmentIndex { get; set; }
 
 
 }
