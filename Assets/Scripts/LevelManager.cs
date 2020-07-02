@@ -7,8 +7,14 @@ public class LevelManager : MonoBehaviour
 
     public List<Piece> jumps = new List<Piece>();
     public List<Piece> slides = new List<Piece>();
-    public List<Piece> ramps = new List<Piece>();
-    public List<Piece> shortBlocks = new List<Piece>();
+    public List<Piece> cars = new List<Piece>();
+    public List<Piece> carsReversed = new List<Piece>();
+    public List<Piece> vans = new List<Piece>();
+    public List<Piece> vansReversed = new List<Piece>();
+    public List<Piece> buses = new List<Piece>();
+    public List<Piece> busesReversed = new List<Piece>();
+    public List<Piece> trucks = new List<Piece>();
+    public List<Piece> trucksReversed = new List<Piece>();
 
     public List<Piece> pieces = new List<Piece>();
 
@@ -34,12 +40,36 @@ public class LevelManager : MonoBehaviour
                     pieceTemporary = slides[visualIndex].gameObject;
                     break;
 
-                case PieceType.ramp:
-                    pieceTemporary = ramps[visualIndex].gameObject;
+                case PieceType.car:
+                    pieceTemporary = cars[visualIndex].gameObject;
                     break;
 
-                case PieceType.shortBlock:
-                    pieceTemporary = shortBlocks[visualIndex].gameObject;
+                case PieceType.carReversed:
+                    pieceTemporary = carsReversed[visualIndex].gameObject;
+                    break;
+
+                case PieceType.van:
+                    pieceTemporary = vans[visualIndex].gameObject;
+                    break;
+
+                case PieceType.vanReversed:
+                    pieceTemporary = vansReversed[visualIndex].gameObject;
+                    break;
+
+                case PieceType.bus:
+                    pieceTemporary = buses[visualIndex].gameObject;
+                    break;
+
+                case PieceType.busReversed:
+                    pieceTemporary = busesReversed[visualIndex].gameObject;
+                    break;
+
+                case PieceType.truck:
+                    pieceTemporary = trucks[visualIndex].gameObject;
+                    break;
+
+                case PieceType.truckReversed:
+                    pieceTemporary = trucksReversed[visualIndex].gameObject;
                     break;
 
             }

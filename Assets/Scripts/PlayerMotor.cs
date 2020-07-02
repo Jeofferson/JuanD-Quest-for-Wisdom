@@ -5,7 +5,7 @@ public class PlayerMotor : MonoBehaviour
 {
 
 
-    private const float LANE_DISTANCE = 3f;
+    private const float LANE_DISTANCE = 3.4f;
 
     private const float CHARACTER_CONTROLLER_ORIGINAL_CENTER_Y = .9f;
     private const float CHARACTER_CONTROLLER_ORIGINAL_HEIGHT = 1.8f;
@@ -14,10 +14,11 @@ public class PlayerMotor : MonoBehaviour
     private readonly List<float> SPEED_INCREASE_INTERVALS = new List<float> { 3f, 3f };
     private readonly List<float> SPEED_INCREASE_MULTIPLIERS = new List<float> { 1.5f, 2f };
     private const float TURN_SPEED = ORIGINAL_SPEED * 2f;
-    private const float JUMP_FORCE = 20f;
+    private const float JUMP_FORCE = 40f;
     private const float SLIDE_DURATION = 1.167f;
 
     private bool hasStartedRunning;
+    private bool didDie;
 
     // Movement X
     private int desiredLane = 1;    // 0 = Left, 1 = Middle, 2 = Right;
@@ -32,6 +33,9 @@ public class PlayerMotor : MonoBehaviour
 
     // Movement Z
     private float currentSpeed = ORIGINAL_SPEED;
+
+    private Vector3 targetPosition;
+    private Vector3 moveVector;
 
     private CharacterController characterController;
     private CameraMotor cameraMotor;
@@ -56,6 +60,14 @@ public class PlayerMotor : MonoBehaviour
     {
 
         if (!hasStartedRunning) { return; }
+
+        if (didDie)
+        {
+
+            //CalculateY();
+            return;
+
+        }
 
         // Identify which lane (swiping)
         if (MobileInput.Instance.SwipeLeft)
@@ -88,7 +100,7 @@ public class PlayerMotor : MonoBehaviour
         }
 
         // Determine target  position
-        Vector3 targetPosition = transform.position.z * Vector3.forward;
+        targetPosition = transform.position.z * Vector3.forward;
 
         switch (desiredLane)
         {
@@ -104,78 +116,11 @@ public class PlayerMotor : MonoBehaviour
         }
 
         // Calculate move delta
-        Vector3 moveVector = Vector3.zero;
+        moveVector = Vector3.zero;
 
-        #region Calculate X
-        float tempNormalized = (targetPosition - transform.position).x;
-
-        if (tempNormalized > 1)
-        {
-
-            tempNormalized = 1;
-
-        }
-
-        if (tempNormalized < -1)
-        {
-
-            tempNormalized = -1;
-
-        }
-
-        moveVector.x = tempNormalized * TURN_SPEED;
-        #endregion
-
-        #region Calculate Y
-        bool isGrounded = IsGrounded();
-
-        animator.SetBool("IsGrounded", isGrounded);
-
-        if (isGrounded)
-        {
-
-            verticalVelocity = -0.1f;
-
-            if (MobileInput.Instance.SwipeUp)
-            {
-
-                Jump();
-
-            }
-            else if (MobileInput.Instance.SwipeDown)
-            {
-
-                if (!isSliding)
-                {
-
-                    Slide();
-
-                }
-
-            }
-
-        }
-        else
-        {
-
-            verticalVelocity -= gravity * (Time.deltaTime * fallForce);
-
-            // Fast fall
-            if (MobileInput.Instance.SwipeDown)
-            {
-
-                verticalVelocity = -JUMP_FORCE;
-
-            }
-
-        }
-
-        moveVector.y = verticalVelocity;
-        #endregion
-
-        #region Calculate Z
-        moveVector.z = currentSpeed;
-        #endregion
+        CalculateX();
+        CalculateY();
+        CalculateZ();
 
         // Move the player
         characterController.Move(moveVector * Time.deltaTime);
@@ -223,6 +168,89 @@ public class PlayerMotor : MonoBehaviour
 
         desiredLane += isGoingRight ? 1 : -1;
         desiredLane = Mathf.Clamp(desiredLane, 0, 2);
+
+    }
+
+
+    private void CalculateX()
+    {
+
+        float tempNormalized = (targetPosition - transform.position).x;
+
+        if (tempNormalized > 1)
+        {
+
+            tempNormalized = 1;
+
+        }
+
+        if (tempNormalized < -1)
+        {
+
+            tempNormalized = -1;
+
+        }
+
+        moveVector.x = tempNormalized * TURN_SPEED;
+
+    }
+
+
+    private void CalculateY()
+    {
+
+        bool isGrounded = IsGrounded();
+
+        animator.SetBool("IsGrounded", isGrounded);
+
+        if (isGrounded)
+        {
+
+            verticalVelocity = -0.1f;
+
+            if (MobileInput.Instance.SwipeUp)
+            {
+
+                Jump();
+
+            }
+            else if (MobileInput.Instance.SwipeDown)
+            {
+
+                if (!isSliding)
+                {
+
+                    Slide();
+
+                }
+
+            }
+
+        }
+        else
+        {
+
+            verticalVelocity -= gravity * (Time.deltaTime * fallForce);
+
+            // Fast fall
+            if (MobileInput.Instance.SwipeDown)
+            {
+
+                verticalVelocity = -JUMP_FORCE;
+
+            }
+
+        }
+
+        moveVector.y = verticalVelocity;
+
+    }
+
+
+    private void CalculateZ()
+    {
+
+        moveVector.z = currentSpeed;
 
     }
 
@@ -292,7 +320,7 @@ public class PlayerMotor : MonoBehaviour
     public void Die()
     {
 
-        hasStartedRunning = false;
+        didDie = true;
 
         cameraMotor.Die();
         statsManager.Die();
