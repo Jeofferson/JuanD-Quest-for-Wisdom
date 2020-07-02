@@ -16,14 +16,26 @@ public class Segment : MonoBehaviour
     public int endY2;
     public int endY3;
 
-    private Piece[] pieces;
+    private PieceSpawner[] pieceSpawners;
 
 
     private void Awake()
     {
 
-        pieces = gameObject.GetComponentsInChildren<Piece>();
-        
+        pieceSpawners = GetComponentsInChildren<PieceSpawner>();
+
+        for (int i = 0; i < pieceSpawners.Length; i++)
+        {
+
+            foreach (MeshRenderer meshRenderer in pieceSpawners[i].GetComponentsInChildren<MeshRenderer>())
+            {
+
+                meshRenderer.enabled = LevelManager.Instance.showCollider;
+
+            }
+
+        }
+
     }
 
 
@@ -32,6 +44,18 @@ public class Segment : MonoBehaviour
 
         gameObject.SetActive(true);
 
+        if (LevelManager.Instance.showVisual)
+        {
+
+            for (int i = 0; i < pieceSpawners.Length; i++)
+            {
+
+                pieceSpawners[i].Spawn();
+
+            }
+
+        }
+
     }
 
 
@@ -39,6 +63,18 @@ public class Segment : MonoBehaviour
     {
 
         gameObject.SetActive(false);
+
+        if (LevelManager.Instance.showVisual)
+        {
+
+            for (int i = 0; i < pieceSpawners.Length; i++)
+            {
+
+                pieceSpawners[i].Despawn();
+
+            }
+
+        }
 
     }
 
