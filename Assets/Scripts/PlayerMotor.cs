@@ -42,7 +42,9 @@ public class PlayerMotor : MonoBehaviour
 
     private CharacterController characterController;
     private CameraMotor cameraMotor;
+
     private StatsManager statsManager;
+    private DeathMenu deathMenu;
 
     private Animator animator;
 
@@ -52,7 +54,9 @@ public class PlayerMotor : MonoBehaviour
 
         characterController = GetComponent<CharacterController>();
         cameraMotor = FindObjectOfType<CameraMotor>();
+
         statsManager = FindObjectOfType<StatsManager>();
+        deathMenu = FindObjectOfType<DeathMenu>();
 
         animator = GetComponent<Animator>();
 
@@ -344,6 +348,7 @@ public class PlayerMotor : MonoBehaviour
 
         cameraMotor.Die();
         statsManager.Die();
+        deathMenu.Die();
 
         animator.SetTrigger("Die");
 

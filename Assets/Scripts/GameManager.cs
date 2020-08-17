@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
 
 
+    public static bool startImmediatelyFromPreviousRun;
     private bool hasStartedRunning;
 
     private PlayerMotor playerMotor;
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
 
-        if (!hasStartedRunning && MobileInput.Instance.Tap)
+        if (!hasStartedRunning && (startImmediatelyFromPreviousRun || MobileInput.Instance.Tap))
         {
 
             hasStartedRunning = true;
@@ -38,6 +39,15 @@ public class GameManager : MonoBehaviour
         }
 
         //if (!hasStartedRunning) { return; }
+
+    }
+
+
+    public void LoadSceneGame(bool startImmediately)
+    {
+
+        startImmediatelyFromPreviousRun = startImmediately;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
 
     }
 

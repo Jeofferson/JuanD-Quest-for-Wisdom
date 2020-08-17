@@ -2,10 +2,17 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraMotor
+    - CoinHolder
+    - DeathMenu
+    - FootholdMotor
     - GameManager
+    - LevelManager
     - MainCamera
     - MobileInput
+    - Piece
+    - PieceSpawner
     - PlayerMotor
+    - Segment
     - StatsManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -30,6 +37,7 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
@@ -78,35 +86,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11236}
     - Class: 114
-      Script: {instanceID: 11532}
+      Script: {instanceID: 11382}
     - Class: 114
-      Script: {instanceID: 11866}
+      Script: {instanceID: 11512}
     - Class: 114
-      Script: {instanceID: 11968}
+      Script: {instanceID: 11536}
     - Class: 114
-      Script: {instanceID: 12048}
+      Script: {instanceID: 11716}
     - Class: 114
-      Script: {instanceID: 12100}
+      Script: {instanceID: 11872}
     - Class: 114
-      Script: {instanceID: 12372}
+      Script: {instanceID: 11974}
     - Class: 114
-      Script: {instanceID: 12912}
+      Script: {instanceID: 12054}
     - Class: 114
-      Script: {instanceID: 12930}
+      Script: {instanceID: 12070}
     - Class: 114
-      Script: {instanceID: 13134}
+      Script: {instanceID: 12108}
     - Class: 114
-      Script: {instanceID: 13174}
+      Script: {instanceID: 12214}
     - Class: 114
-      Script: {instanceID: 13256}
+      Script: {instanceID: 12382}
     - Class: 114
-      Script: {instanceID: 13468}
+      Script: {instanceID: 12600}
     - Class: 114
-      Script: {instanceID: 13744}
+      Script: {instanceID: 12922}
     - Class: 114
-      Script: {instanceID: 192206}
+      Script: {instanceID: 12940}
     - Class: 114
-      Script: {instanceID: 1209662}
+      Script: {instanceID: 12978}
+    - Class: 114
+      Script: {instanceID: 13074}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13188}
+    - Class: 114
+      Script: {instanceID: 13270}
+    - Class: 114
+      Script: {instanceID: 13482}
+    - Class: 114
+      Script: {instanceID: 13758}
+    - Class: 114
+      Script: {instanceID: 88854}
+    - Class: 114
+      Script: {instanceID: 195702}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -164,6 +188,12 @@ ScriptsOnlyBuild:
     className: PreferenceDictionary
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CoinHolder
+  - hash:
+      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -198,6 +228,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Scrollbar
+  - hash:
+      serializedVersion: 2
+      Hash: ac62f79405d95138443dfa5e387a1690
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PieceSpawner
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -264,6 +300,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: a693fb3985f2f0b8cb43752522d978d2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainCamera
   - hash:
       serializedVersion: 2
       Hash: 36f96c190e244321e128769d9c5120ac
@@ -344,6 +386,12 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: ab8c1df710741b8dc3c4d4cb107fe9f4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Piece
+  - hash:
+      serializedVersion: 2
       Hash: b8a5e8091ab0b8861d2add371082c5e0
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -360,6 +408,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Selectable
+  - hash:
+      serializedVersion: 2
+      Hash: 91fd96ae3a7424cfea8b1da7a7e7eef6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Segment
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -488,6 +542,12 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 4ae058ded93082ba5fdd6f29390f2268
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StatsManager
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -498,6 +558,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.ProBuilder.dll
     namespaceName: UnityEngine.ProBuilder
     className: Entity
+  - hash:
+      serializedVersion: 2
+      Hash: 0cc9d46ba01cc9b9227e6385185053af
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelManager
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -638,16 +704,16 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: a693fb3985f2f0b8cb43752522d978d2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: MainCamera
+    className: FootholdMotor
   - hash:
       serializedVersion: 2
-      Hash: 44eeca561d632be8db844658b2f4e25d
+      Hash: 357aa46622045ef4d10f3ab8d3277ed9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: StatsManager
+    className: DeathMenu
   platform: 13
   scenePathNames:
   - Assets/Scenes/Game.unity
