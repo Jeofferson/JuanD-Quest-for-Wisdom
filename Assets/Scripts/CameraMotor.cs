@@ -25,7 +25,7 @@ public class CameraMotor : MonoBehaviour
         desiredPositionWithLerp.x = desiredPosition.x;
         desiredPositionWithLerp.y = desiredPosition.y;
 
-        transform.position = desiredPositionWithLerp;
+        transform.position = desiredPositionWithLerp; 
 
     }
 

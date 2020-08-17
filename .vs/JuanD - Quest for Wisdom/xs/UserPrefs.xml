@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{252BF810-FB95-4C70-F481-C0FECC70BE9D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PieceSpawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FootholdMotor.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/LevelManager.cs" Line="103" Column="1" />
-      <File FileName="Assets/Scripts/Segment.cs" Line="24" Column="1" />
-      <File FileName="Assets/Scripts/PieceSpawner.cs" Line="17" Column="10" />
-      <File FileName="Assets/Scripts/Piece.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMotor.cs" Line="18" Column="58" />
+      <File FileName="Assets/Scripts/GameManager.cs" />
+      <File FileName="Assets/Scripts/LevelManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CameraMotor.cs" Line="6" Column="1" />
+      <File FileName="Assets/Scripts/FootholdMotor.cs" Line="7" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,7 +13,7 @@
           <Node name="JuanD - Quest for Wisdom" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PieceSpawner.cs" selected="True" />
+                <Node name="FootholdMotor.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -23,7 +23,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b8515cf1-369a-4934-940f-8384ea2c0f78" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="417a7211-7791-4560-9018-27d128339517" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

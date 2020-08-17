@@ -70,6 +70,7 @@
     <Compile Include="Assets\Assets\Skyboxes\BOXOPHOBIC\Utils\PropertyDrawers\BRangeSimpleAttribute.cs" />
     <Compile Include="Assets\Scripts\CameraMotor.cs" />
     <Compile Include="Assets\Scripts\CoinHolder.cs" />
+    <Compile Include="Assets\Scripts\FootholdMotor.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\MainCamera.cs" />

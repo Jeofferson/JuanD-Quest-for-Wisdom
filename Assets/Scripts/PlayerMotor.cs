@@ -15,6 +15,7 @@ public class PlayerMotor : MonoBehaviour
     private readonly List<float> SPEED_INCREASE_MULTIPLIERS = new List<float> { 1.5f, 2f };
     private const float TURN_SPEED = ORIGINAL_SPEED * 2f;
     private const float JUMP_FORCE = 40f;
+    private const float DELAY_BEFORE_JUMPING_AGAIN = 0.33f;
     private const float SLIDE_DURATION = 1.167f;
 
     private bool hasStartedRunning;
@@ -26,8 +27,10 @@ public class PlayerMotor : MonoBehaviour
     // Movement Y
     private float gravity = 12f;
 
+    private float timeOfJump;
     private float fallForce = JUMP_FORCE / 4f;
     private float verticalVelocity;
+    private bool jumpAgainImmediately;
 
     private bool isSliding;
 
@@ -212,6 +215,7 @@ public class PlayerMotor : MonoBehaviour
             {
 
                 Jump();
+                timeOfJump = Time.time;
 
             }
             else if (MobileInput.Instance.SwipeDown)
@@ -225,6 +229,15 @@ public class PlayerMotor : MonoBehaviour
                 }
 
             }
+            else if (jumpAgainImmediately)
+            {
+
+                jumpAgainImmediately = false;
+
+                Jump();
+                timeOfJump = Time.time;
+
+            }
 
         }
         else
@@ -236,7 +249,15 @@ public class PlayerMotor : MonoBehaviour
             if (MobileInput.Instance.SwipeDown)
             {
 
+                jumpAgainImmediately = false;
+
                 verticalVelocity = -JUMP_FORCE;
+
+            }
+            else if (MobileInput.Instance.SwipeUp && Time.time > timeOfJump + DELAY_BEFORE_JUMPING_AGAIN)
+            {
+
+                jumpAgainImmediately = true;
 
             }
 
@@ -287,7 +308,6 @@ public class PlayerMotor : MonoBehaviour
     {
 
         animator.SetTrigger("Slide");
-
         ShrinkCharacterController();
 
     }
