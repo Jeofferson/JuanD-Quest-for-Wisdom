@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Aug 17 17:36:45 PHT 2020
+#Wed Aug 19 00:02:10 PHT 2020
 60.set=NATIVE_RESOURCE
 52.set=ASSET
 53.base=/Users/jeoffersondelapena/MyDocuments/Projects/Unity/JuanD - Quest for Wisdom/Temp/gradleOut/launcher/build/intermediates/merged_assets/release/out

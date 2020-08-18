@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     private PlayerMotor playerMotor;
     private CameraMotor cameraMotor;
+    private HomeScreen homeScreen;
     private StatsManager statsManager;
 
 
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
 
         playerMotor = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMotor>();
         cameraMotor = FindObjectOfType<CameraMotor>();
+        homeScreen = FindObjectOfType<HomeScreen>();
         statsManager = FindObjectOfType<StatsManager>();
 
     }
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
 
             playerMotor.StartRunning();
             cameraMotor.StartRunning();
+            homeScreen.StartRunning();
             statsManager.StartRunning();
 
         }

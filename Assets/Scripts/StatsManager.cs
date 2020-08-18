@@ -21,6 +21,8 @@ public class StatsManager : MonoBehaviour
     private int life;
     public TextMeshProUGUI textLife;
 
+    public Animator animatorStatsManager;
+
 
     private void Awake()
     {
@@ -48,6 +50,8 @@ public class StatsManager : MonoBehaviour
 
     public void StartRunning()
     {
+
+        animatorStatsManager.SetTrigger("Show");
 
         InvokeRepeating("RegulateScore", .1f, .1f);
         InvokeRepeating("RegulateLife", 1f, 1f);
