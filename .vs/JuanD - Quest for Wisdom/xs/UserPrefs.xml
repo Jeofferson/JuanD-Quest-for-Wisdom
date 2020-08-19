@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{252BF810-FB95-4C70-F481-C0FECC70BE9D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StatsManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/HomeScreen.cs" Line="5" Column="2" />
-      <File FileName="Assets/Scripts/StatsManager.cs" Line="55" Column="1" />
-      <File FileName="Assets/Scripts/DeathMenu.cs" Line="25" Column="1" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="39" Column="39" />
+      <File FileName="Assets/Scripts/TerrainManager.cs" Line="30" Column="55" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="22" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMotor.cs" Line="349" Column="44" />
+      <File FileName="Assets/Scripts/StatsManager.cs" Line="11" Column="42" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,7 +12,7 @@
           <Node name="JuanD - Quest for Wisdom" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="GameManager.cs" selected="True" />
+                <Node name="StatsManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>

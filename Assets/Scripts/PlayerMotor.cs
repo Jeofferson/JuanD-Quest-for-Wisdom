@@ -40,9 +40,9 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 targetPosition;
     private Vector3 moveVector;
 
+    private TerrainManager terrainManager;
     private CharacterController characterController;
     private CameraMotor cameraMotor;
-
     private StatsManager statsManager;
     private DeathMenu deathMenu;
 
@@ -52,9 +52,9 @@ public class PlayerMotor : MonoBehaviour
     private void Start()
     {
 
+        terrainManager = FindObjectOfType<TerrainManager>();
         characterController = GetComponent<CharacterController>();
         cameraMotor = FindObjectOfType<CameraMotor>();
-
         statsManager = FindObjectOfType<StatsManager>();
         deathMenu = FindObjectOfType<DeathMenu>();
 
@@ -346,6 +346,7 @@ public class PlayerMotor : MonoBehaviour
 
         didDie = true;
 
+        terrainManager.IsScrolling = false;
         cameraMotor.Die();
         statsManager.Die();
         deathMenu.Die();

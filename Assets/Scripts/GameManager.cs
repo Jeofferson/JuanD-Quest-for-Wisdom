@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private bool didPlayerTapStart;
     private bool hasStartedRunning;
 
+    private TerrainManager terrainManager;
     private PlayerMotor playerMotor;
     private CameraMotor cameraMotor;
     private HomeScreen homeScreen;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
 
+        terrainManager = FindObjectOfType<TerrainManager>();
         playerMotor = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMotor>();
         cameraMotor = FindObjectOfType<CameraMotor>();
         homeScreen = FindObjectOfType<HomeScreen>();
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
 
             hasStartedRunning = true;
 
+            terrainManager.IsScrolling = true;
             playerMotor.StartRunning();
             cameraMotor.StartRunning();
             homeScreen.StartRunning();
