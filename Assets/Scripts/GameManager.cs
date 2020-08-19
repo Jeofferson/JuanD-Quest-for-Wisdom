@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 
 
     public static bool startImmediatelyFromPreviousRun;
+    private bool didPlayerTapStart;
     private bool hasStartedRunning;
 
     private PlayerMotor playerMotor;
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
 
-        if (!hasStartedRunning && (startImmediatelyFromPreviousRun || MobileInput.Instance.Tap))
+        if (!hasStartedRunning && (startImmediatelyFromPreviousRun || didPlayerTapStart))
         {
 
             hasStartedRunning = true;
@@ -42,6 +43,14 @@ public class GameManager : MonoBehaviour
         }
 
         //if (!hasStartedRunning) { return; }
+
+    }
+
+
+    public void PlayerTappedStart()
+    {
+
+        didPlayerTapStart = true;
 
     }
 

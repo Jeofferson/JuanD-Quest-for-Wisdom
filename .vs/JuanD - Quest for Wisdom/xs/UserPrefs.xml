@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{252BF810-FB95-4C70-F481-C0FECC70BE9D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StatsManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/HomeScreen.cs" Line="27" Column="52" />
+      <File FileName="Assets/Scripts/HomeScreen.cs" Line="5" Column="2" />
+      <File FileName="Assets/Scripts/StatsManager.cs" Line="55" Column="1" />
       <File FileName="Assets/Scripts/DeathMenu.cs" Line="25" Column="1" />
       <File FileName="Assets/Scripts/GameManager.cs" Line="39" Column="39" />
-      <File FileName="Assets/Scripts/StatsManager.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,7 +12,7 @@
           <Node name="JuanD - Quest for Wisdom" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="StatsManager.cs" selected="True" />
+                <Node name="GameManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -22,7 +22,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="cf153f1d-f032-4f27-93ff-893ee66bb65d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="902b9430-897e-4be3-8cbf-c6caa3555760" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
