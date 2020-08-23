@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StatsManager : MonoBehaviour
 {
@@ -18,8 +19,9 @@ public class StatsManager : MonoBehaviour
     private int coin;
     public TextMeshProUGUI textCoin;
 
-    private int life;
+    private float life;
     public TextMeshProUGUI textLife;
+    public Slider sliderLife;
 
     public Animator animatorStatsManager;
 
@@ -54,7 +56,7 @@ public class StatsManager : MonoBehaviour
         animatorStatsManager.SetTrigger("Show");
 
         InvokeRepeating("RegulateScore", .1f, .1f);
-        InvokeRepeating("RegulateLife", 1f, 1f);
+        InvokeRepeating("RegulateLife", .1f, .1f);
 
     }
 
@@ -71,7 +73,7 @@ public class StatsManager : MonoBehaviour
     private void RegulateLife()
     {
 
-        life--;
+        life -= .1f;
         UpdateLife();
 
         if (life <= 0)
@@ -114,7 +116,8 @@ public class StatsManager : MonoBehaviour
     private void UpdateLife()
     {
 
-        textLife.text = life.ToString();
+        textLife.text = life.ToString("0");
+        sliderLife.value = life;
 
     }
 
