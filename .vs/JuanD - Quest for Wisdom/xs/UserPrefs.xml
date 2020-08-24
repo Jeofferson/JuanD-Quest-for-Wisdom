@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{252BF810-FB95-4C70-F481-C0FECC70BE9D}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/StatsManager.cs" Line="46" Column="42" />
+      <File FileName="Assets/Scripts/StatsManager.cs" Line="93" Column="16" />
       <File FileName="Assets/Scripts/GameManager.cs" Line="8" Column="36" />
     </Files>
     <Pads>

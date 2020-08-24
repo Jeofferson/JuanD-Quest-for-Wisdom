@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - LevelManager
     - MainCamera
     - MobileInput
+    - PauseManager
     - Piece
     - PieceSpawner
     - PlayerMotor
@@ -41,6 +42,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Slider
   sceneClasses:
     Assets/Scenes/Game.unity:
     - Class: 1
@@ -102,39 +104,43 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11978}
     - Class: 114
-      Script: {instanceID: 12058}
+      Script: {instanceID: 11982}
     - Class: 114
-      Script: {instanceID: 12074}
+      Script: {instanceID: 12060}
     - Class: 114
-      Script: {instanceID: 12112}
+      Script: {instanceID: 12076}
     - Class: 114
-      Script: {instanceID: 12218}
+      Script: {instanceID: 12114}
     - Class: 114
-      Script: {instanceID: 12386}
+      Script: {instanceID: 12220}
     - Class: 114
-      Script: {instanceID: 12604}
+      Script: {instanceID: 12388}
     - Class: 114
-      Script: {instanceID: 12926}
+      Script: {instanceID: 12606}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 12780}
     - Class: 114
-      Script: {instanceID: 12982}
+      Script: {instanceID: 12930}
     - Class: 114
-      Script: {instanceID: 13078}
+      Script: {instanceID: 12948}
     - Class: 114
-      Script: {instanceID: 13152}
+      Script: {instanceID: 12986}
     - Class: 114
-      Script: {instanceID: 13192}
+      Script: {instanceID: 13082}
     - Class: 114
-      Script: {instanceID: 13274}
+      Script: {instanceID: 13156}
     - Class: 114
-      Script: {instanceID: 13478}
+      Script: {instanceID: 13196}
     - Class: 114
-      Script: {instanceID: 13488}
+      Script: {instanceID: 13278}
     - Class: 114
-      Script: {instanceID: 13764}
+      Script: {instanceID: 13482}
     - Class: 114
-      Script: {instanceID: 327130}
+      Script: {instanceID: 13492}
+    - Class: 114
+      Script: {instanceID: 13768}
+    - Class: 114
+      Script: {instanceID: 13812}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -390,6 +396,12 @@ ScriptsOnlyBuild:
     className: GameManager
   - hash:
       serializedVersion: 2
+      Hash: c234d59c54ef417c096a052414080bea
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TerrainManager
+  - hash:
+      serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -510,6 +522,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 8d8da149ad4c8f4bbb5b013602dd8274
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PauseManager
+  - hash:
+      serializedVersion: 2
       Hash: d6a8e9bec3160a152b9b2710593d3caa
     assemblyName: Unity.ProBuilder.dll
     namespaceName: UnityEngine.ProBuilder
@@ -558,7 +576,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 152dff359d628e8adfe47fc0fd81fb68
+      Hash: 2c17de61b9cb477cfb773ac7ef5650a0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StatsManager
@@ -724,12 +742,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: c234d59c54ef417c096a052414080bea
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TerrainManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/Game.unity
