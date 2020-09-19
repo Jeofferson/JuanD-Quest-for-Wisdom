@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{252BF810-FB95-4C70-F481-C0FECC70BE9D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AudioManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/StatsManager.cs" Line="93" Column="16" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="8" Column="36" />
+      <File FileName="Assets/AudioManager.cs" Line="33" Column="34" />
+      <File FileName="Assets/Scripts/Sound.cs" Line="14" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,17 +10,22 @@
           <Node name="JuanD - Quest for Wisdom" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="GameManager.cs" selected="True" />
+                <Node name="AudioManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="JuanD - Quest for Wisdom" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="239a623e-09ad-475b-8df7-6b70b9e7d578" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6b941a49-5209-4a34-8f5d-fd7cf4016e3f" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
