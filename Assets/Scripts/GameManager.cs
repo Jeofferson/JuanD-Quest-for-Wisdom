@@ -29,6 +29,14 @@ public class GameManager : MonoBehaviour
     }
 
 
+    private void Start()
+    {
+
+        SoundManager.PlaySound(SoundManager.Sound.bgm01);
+
+    }
+
+
     private void Update()
     {
 
