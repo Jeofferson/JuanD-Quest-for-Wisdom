@@ -32,7 +32,20 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
-        SoundManager.PlaySound(SoundManager.Sound.bgm01);
+        int bgmNumber = new System.Random().Next(0, 2);
+
+        switch(bgmNumber)
+        {
+
+            case 0:
+                SoundManager.PlaySound(SoundManager.Sound.bgm01);
+                break;
+
+            case 1:
+                SoundManager.PlaySound(SoundManager.Sound.bgm02);
+                break;
+
+        }
 
     }
 

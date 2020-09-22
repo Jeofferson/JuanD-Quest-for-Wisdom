@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - CoinHolder
     - DeathMenu
     - FootholdMotor
+    - GameAssets
     - GameManager
     - HomeScreen
     - LevelManager
@@ -73,6 +74,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 91
@@ -118,29 +121,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12606}
     - Class: 114
-      Script: {instanceID: 12780}
+      Script: {instanceID: 12782}
     - Class: 114
-      Script: {instanceID: 12930}
+      Script: {instanceID: 12932}
     - Class: 114
-      Script: {instanceID: 12948}
+      Script: {instanceID: 12950}
     - Class: 114
-      Script: {instanceID: 12986}
+      Script: {instanceID: 12988}
     - Class: 114
-      Script: {instanceID: 13082}
+      Script: {instanceID: 13084}
     - Class: 114
-      Script: {instanceID: 13156}
+      Script: {instanceID: 13158}
     - Class: 114
-      Script: {instanceID: 13196}
+      Script: {instanceID: 13198}
     - Class: 114
-      Script: {instanceID: 13278}
+      Script: {instanceID: 13280}
     - Class: 114
-      Script: {instanceID: 13482}
+      Script: {instanceID: 13290}
     - Class: 114
-      Script: {instanceID: 13492}
+      Script: {instanceID: 13486}
     - Class: 114
-      Script: {instanceID: 13768}
+      Script: {instanceID: 13496}
     - Class: 114
-      Script: {instanceID: 13812}
+      Script: {instanceID: 13772}
+    - Class: 114
+      Script: {instanceID: 13816}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -622,6 +627,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: dbb5e9b830ecdfb5d494386aa3176d0b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameAssets
   - hash:
       serializedVersion: 2
       Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7

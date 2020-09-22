@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class SoundManager
 {
@@ -8,17 +6,36 @@ public static class SoundManager
 
     public enum Sound
     {
+
         bgm01,
         bgm02,
+
     }
+
+
+    private static GameObject oneShotGameObject;
+    private static AudioSource oneShotAudioSource;
 
 
     public static void PlaySound(Sound sound)
     {
 
-        GameObject soundGameObject = new GameObject("Sound");
-        AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
-        audioSource.PlayOneShot(GetAudioClip(sound));
+        if (oneShotGameObject == null)
+        {
+
+            oneShotGameObject = new GameObject("One Shot Sound");
+            oneShotAudioSource = oneShotGameObject.AddComponent<AudioSource>();
+
+        }
+
+        oneShotAudioSource.PlayOneShot(GetAudioClip(sound));
+
+        if (sound == Sound.bgm01 || sound == Sound.bgm02)
+        {
+
+            oneShotAudioSource.loop = true;
+
+        }
 
     }
 
@@ -40,6 +57,22 @@ public static class SoundManager
 
         Debug.LogError("Sound " + sound + " not found!");
         return null;
+
+    }
+
+
+    public static void MuteSound()
+    {
+
+        oneShotAudioSource.mute = true;
+
+    }
+
+
+    public static void UnmuteSound()
+    {
+
+        oneShotAudioSource.mute = false;
 
     }
 

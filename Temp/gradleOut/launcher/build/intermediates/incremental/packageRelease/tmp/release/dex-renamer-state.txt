@@ -1,0 +1,4 @@
+#Tue Sep 22 08:00:29 PHT 2020
+base.0=/Users/jeoffersondelapena/MyDocuments/Projects/Unity/JuanD - Quest for Wisdom/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/release/0
+path.0=classes.dex
+renamed.0=classes.dex
