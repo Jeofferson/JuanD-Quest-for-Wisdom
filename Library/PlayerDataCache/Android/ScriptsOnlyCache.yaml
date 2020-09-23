@@ -1,11 +1,11 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AudioManager
     - CameraMotor
     - CoinHolder
     - DeathMenu
     - FootholdMotor
-    - GameAssets
     - GameManager
     - HomeScreen
     - LevelManager
@@ -16,6 +16,7 @@ ScriptsOnlyBuild:
     - PieceSpawner
     - PlayerMotor
     - Segment
+    - SettingsManager
     - StatsManager
     - TerrainManager
     Unity.Rider.Editor.dll:
@@ -29,8 +30,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -44,6 +47,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Slider
+    - UnityEngine.UI.Toggle
   sceneClasses:
     Assets/Scenes/Game.unity:
     - Class: 1
@@ -137,15 +141,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13280}
     - Class: 114
-      Script: {instanceID: 13290}
-    - Class: 114
       Script: {instanceID: 13486}
     - Class: 114
       Script: {instanceID: 13496}
     - Class: 114
       Script: {instanceID: 13772}
     - Class: 114
+      Script: {instanceID: 13794}
+    - Class: 114
       Script: {instanceID: 13816}
+    - Class: 114
+      Script: {instanceID: 46380}
+    - Class: 114
+      Script: {instanceID: 769108}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -527,7 +535,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 8d8da149ad4c8f4bbb5b013602dd8274
+      Hash: 3cdbc0d57f782d71bd594d59a9bf554e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseManager
@@ -627,12 +635,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
-  - hash:
-      serializedVersion: 2
-      Hash: dbb5e9b830ecdfb5d494386aa3176d0b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameAssets
   - hash:
       serializedVersion: 2
       Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
@@ -753,6 +755,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 42d3874124c93468bbb4d91d2bc831a4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SettingsManager
+  - hash:
+      serializedVersion: 2
+      Hash: 2577d6444509c52eb44feb6cd4815a66
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AudioManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/Game.unity

@@ -26,6 +26,37 @@ public class GameManager : MonoBehaviour
         homeScreen = FindObjectOfType<HomeScreen>();
         statsManager = FindObjectOfType<StatsManager>();
 
+        // This block of code will only run on the very first time the app is opened...
+        if (PlayerPrefs.GetInt(ConstantsPlayerPrefs.IS_APP_OPENED_BEFORE) == 0)
+        {
+
+            PlayerPrefs.SetInt(ConstantsPlayerPrefs.IS_BGM_ON, 1);
+            PlayerPrefs.SetInt(ConstantsPlayerPrefs.IS_SFX_ON, 1);
+
+            PlayerPrefs.SetInt(ConstantsPlayerPrefs.IS_APP_OPENED_BEFORE, 1);
+
+        }
+        // This block of code will run every time the app is opened except for the very first time...
+        else
+        {
+
+            if (PlayerPrefs.GetInt(ConstantsPlayerPrefs.IS_BGM_ON) == 1)
+            {
+
+                AudioManager.instance.Unmute(Constants.BGM_01);
+                AudioManager.instance.Unmute(Constants.BGM_02);
+
+            }
+            else
+            {
+
+                AudioManager.instance.Mute(Constants.BGM_01);
+                AudioManager.instance.Mute(Constants.BGM_02);
+
+            }
+
+        }
+
     }
 
 
@@ -34,15 +65,17 @@ public class GameManager : MonoBehaviour
 
         int bgmNumber = new System.Random().Next(0, 2);
 
-        switch(bgmNumber)
+        switch (bgmNumber)
         {
 
             case 0:
-                SoundManager.PlaySound(SoundManager.Sound.bgm01);
+                SuperGlobals.currentBgm = Constants.BGM_01;
+                AudioManager.instance.Play(Constants.BGM_01);
                 break;
 
             case 1:
-                SoundManager.PlaySound(SoundManager.Sound.bgm02);
+                SuperGlobals.currentBgm = Constants.BGM_02;
+                AudioManager.instance.Play(Constants.BGM_02);
                 break;
 
         }
@@ -81,6 +114,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadSceneGame(bool startImmediately)
     {
+
+        AudioManager.instance.Stop(SuperGlobals.currentBgm);
 
         startImmediatelyFromPreviousRun = startImmediately;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Game");

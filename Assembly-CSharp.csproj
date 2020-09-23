@@ -68,11 +68,13 @@
     <Compile Include="Assets\Assets\Skyboxes\BOXOPHOBIC\Utils\PropertyDrawers\BMessageAttribute.cs" />
     <Compile Include="Assets\Assets\Skyboxes\BOXOPHOBIC\Utils\PropertyDrawers\BRangeOptionsAttribute.cs" />
     <Compile Include="Assets\Assets\Skyboxes\BOXOPHOBIC\Utils\PropertyDrawers\BRangeSimpleAttribute.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\CameraMotor.cs" />
     <Compile Include="Assets\Scripts\CoinHolder.cs" />
+    <Compile Include="Assets\Scripts\Constants.cs" />
+    <Compile Include="Assets\Scripts\ConstantsPlayerPrefs.cs" />
     <Compile Include="Assets\Scripts\DeathMenu.cs" />
     <Compile Include="Assets\Scripts\FootholdMotor.cs" />
-    <Compile Include="Assets\Scripts\GameAssets.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HomeScreen.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
@@ -83,8 +85,10 @@
     <Compile Include="Assets\Scripts\PieceSpawner.cs" />
     <Compile Include="Assets\Scripts\PlayerMotor.cs" />
     <Compile Include="Assets\Scripts\Segment.cs" />
-    <Compile Include="Assets\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\SettingsManager.cs" />
+    <Compile Include="Assets\Scripts\Sound.cs" />
     <Compile Include="Assets\Scripts\StatsManager.cs" />
+    <Compile Include="Assets\Scripts\SuperGlobals.cs" />
     <Compile Include="Assets\Scripts\TerrainManager.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
