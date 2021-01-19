@@ -3,7 +3,6 @@
 public class CameraMotor : MonoBehaviour
 {
 
-
     private bool hasStartedRunning;
 
     public MainCamera mainCamera;
@@ -12,10 +11,8 @@ public class CameraMotor : MonoBehaviour
     public Vector3 offset;
     public Vector3 rotation;
 
-
     private void LateUpdate()
     {
-
         if (!hasStartedRunning) { return; }
 
         Vector3 desiredPosition = lookAt.position + offset;
@@ -28,26 +25,18 @@ public class CameraMotor : MonoBehaviour
         transform.position = desiredPositionWithLerp;
 
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rotation), .1f);
-
     }
-
 
     public void StartRunning()
     {
-
         hasStartedRunning = true;
-
     }
-
 
     public void Die()
     {
-
         hasStartedRunning = false;
 
         mainCamera.Die();
-
     }
-
 
 }

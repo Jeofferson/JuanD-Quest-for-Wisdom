@@ -1,12 +1,28 @@
 ﻿<Properties StartupConfiguration="{252BF810-FB95-4C70-F481-C0FECC70BE9D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TerrainManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="118" Column="61" />
-      <File FileName="Assets/Scripts/PlayerMotor.cs" Line="355" Column="1" />
-      <File FileName="Assets/Scripts/LevelManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CameraMotor.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/AudioManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SuperGlobals.cs" />
+      <File FileName="Assets/Scripts/CoinHolder.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Constants.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ConstantsPlayerPrefs.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DeathMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FootholdMotor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/HomeScreen.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LevelManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MainCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MobileInput.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Piece.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PauseManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PieceSpawner.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMotor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Segment.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SettingsManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Sound.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/StatsManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SuperGlobals.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TerrainManager.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,7 +30,7 @@
           <Node name="JuanD - Quest for Wisdom" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="GameManager.cs" selected="True" />
+                <Node name="TerrainManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -24,7 +40,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="678cf48a-dbb1-4249-a967-5e671c07c656" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8d5524db-42cc-4048-ae71-8bacc23f8a01" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

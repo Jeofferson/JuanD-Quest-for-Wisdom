@@ -3,7 +3,6 @@
 public class TerrainManager : MonoBehaviour
 {
 
-
     private const float DISTANCE_BEHIND_PLAYER_BEFORE_RESPAWN_TERRAIN = 300f;
 
     public float scrollSpeed;
@@ -13,18 +12,13 @@ public class TerrainManager : MonoBehaviour
 
     private Transform playerTransform;
 
-
     private void Start()
     {
-
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
     }
-
 
     private void Update()
     {
-
         if (!IsScrolling) { return; }
 
         scrollLocation += scrollSpeed * Time.deltaTime;
@@ -34,25 +28,17 @@ public class TerrainManager : MonoBehaviour
 
         if (transform.GetChild(0).transform.position.z < playerTransform.position.z - DISTANCE_BEHIND_PLAYER_BEFORE_RESPAWN_TERRAIN)
         {
-
             SpawnNextTerrain();
             //SpawnNextTerrain();
-
         }
-
     }
-
 
     private void SpawnNextTerrain()
     {
-
         transform.GetChild(0).localPosition += Vector3.forward * totalLength;
         transform.GetChild(0).SetSiblingIndex(transform.childCount);
-
     }
 
-
     public bool IsScrolling { get; set; }
-
 
 }

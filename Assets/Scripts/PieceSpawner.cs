@@ -3,19 +3,15 @@
 public class PieceSpawner : MonoBehaviour
 {
 
-
     public PieceType pieceType;
     private Piece currentPiece;
 
-
     public void Spawn()
     {
-
         int numPieces = 0;
 
         switch (pieceType)
         {
-
             case PieceType.jump:
                 numPieces = LevelManager.Instance.jumps.Count;
                 break;
@@ -55,23 +51,17 @@ public class PieceSpawner : MonoBehaviour
             case PieceType.truckReversed:
                 numPieces = LevelManager.Instance.trucksReversed.Count;
                 break;
-
         }
 
         currentPiece = LevelManager.Instance.GetPiece(pieceType, Random.Range(0, numPieces));
 
         currentPiece.gameObject.SetActive(true);
         currentPiece.transform.SetParent(transform, false);
-
     }
-
 
     public void Despawn()
     {
-
         currentPiece.gameObject.SetActive(false);
-
     }
-
 
 }

@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 
-
 public enum PieceType
 {
-
     none = -1,
     jump = 0,
     slide = 1,
@@ -15,16 +13,12 @@ public enum PieceType
     busReversed = 7,
     truck = 8,
     truckReversed = 9,
-
 }
-
 
 public class Piece : MonoBehaviour
 {
 
-
     public PieceType pieceType;
     public int visualIndex;
-
 
 }

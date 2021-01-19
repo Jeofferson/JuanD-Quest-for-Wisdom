@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerMotor : MonoBehaviour
 {
 
-
     private const float LANE_DISTANCE = 3.4f;
 
     private const float CHARACTER_CONTROLLER_ORIGINAL_CENTER_Y = .9f;
@@ -48,10 +47,8 @@ public class PlayerMotor : MonoBehaviour
 
     private Animator animator;
 
-
     private void Start()
     {
-
         terrainManager = FindObjectOfType<TerrainManager>();
         characterController = GetComponent<CharacterController>();
         cameraMotor = FindObjectOfType<CameraMotor>();
@@ -59,51 +56,38 @@ public class PlayerMotor : MonoBehaviour
         deathMenu = FindObjectOfType<DeathMenu>();
 
         animator = GetComponent<Animator>();
-
     }
-
 
     private void Update()
     {
-
         if (!hasStartedRunning) { return; }
 
         if (didDie)
         {
-
             //CalculateY();
             return;
-
         }
 
         // Identify which lane (swiping)
-        if (MobileInput.Instance.SwipeLeft)
+        if (MobileInput.swipeLeft)
         {
-
             MoveLane(false);
-
         }
 
-        if (MobileInput.Instance.SwipeRight)
+        if (MobileInput.swipeRight)
         {
-
             MoveLane(true);
-
         }
 
         // Identify which lane (using keyboard)
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-
             MoveLane(false);
-
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-
             MoveLane(true);
-
         }
 
         // Determine target  position
@@ -111,7 +95,6 @@ public class PlayerMotor : MonoBehaviour
 
         switch (desiredLane)
         {
-
             case 0:
                 targetPosition += Vector3.left * LANE_DISTANCE;
                 break;
@@ -119,7 +102,6 @@ public class PlayerMotor : MonoBehaviour
             case 2:
                 targetPosition += Vector3.right * LANE_DISTANCE;
                 break;
-
         }
 
         // Calculate move delta
@@ -138,151 +120,106 @@ public class PlayerMotor : MonoBehaviour
 
         if (direction != Vector3.zero)
         {
-
             transform.forward = Vector3.Lerp(transform.forward, direction, TURN_SPEED);
-
         }
-
     }
-
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-
         switch (hit.gameObject.tag)
         {
-
             case "Obstacle":
                 Die();
                 break;
-
         }
-
     }
-
 
     public void StartRunning()
     {
-
         hasStartedRunning = true;
         animator.SetTrigger("StartRunning");
-
     }
-
 
     private void MoveLane(bool isGoingRight)
     {
-
         desiredLane += isGoingRight ? 1 : -1;
         desiredLane = Mathf.Clamp(desiredLane, 0, 2);
-
     }
-
 
     private void CalculateX()
     {
-
         float tempNormalized = (targetPosition - transform.position).x;
 
         if (tempNormalized > 1)
         {
-
             tempNormalized = 1;
-
         }
 
         if (tempNormalized < -1)
         {
-
             tempNormalized = -1;
-
         }
 
         moveVector.x = tempNormalized * TURN_SPEED;
-
     }
-
 
     private void CalculateY()
     {
-
         bool isGrounded = IsGrounded();
 
         animator.SetBool("IsGrounded", isGrounded);
 
         if (isGrounded)
         {
-
             verticalVelocity = -0.1f;
 
-            if (MobileInput.Instance.SwipeUp)
+            if (MobileInput.swipeUp)
             {
-
                 Jump();
                 timeOfJump = Time.time;
-
             }
-            else if (MobileInput.Instance.SwipeDown)
+            else if (MobileInput.swipeDown)
             {
-
                 if (!isSliding)
                 {
-
                     Slide();
-
                 }
-
             }
             else if (jumpAgainImmediately)
             {
-
                 jumpAgainImmediately = false;
 
                 Jump();
                 timeOfJump = Time.time;
-
             }
-
         }
         else
         {
-
             verticalVelocity -= gravity * (Time.deltaTime * fallForce);
 
             // Fast fall
-            if (MobileInput.Instance.SwipeDown)
+            if (MobileInput.swipeDown)
             {
-
                 jumpAgainImmediately = false;
 
                 verticalVelocity = -JUMP_FORCE;
-
             }
-            else if (MobileInput.Instance.SwipeUp && Time.time > timeOfJump + DELAY_BEFORE_JUMPING_AGAIN)
+            else if (MobileInput.swipeUp && Time.time > timeOfJump + DELAY_BEFORE_JUMPING_AGAIN)
             {
-
                 jumpAgainImmediately = true;
-
             }
-
         }
 
         moveVector.y = verticalVelocity;
-
     }
-
 
     private void CalculateZ()
     {
-
         moveVector.z = currentSpeed;
-
     }
-
 
     private bool IsGrounded()
     {
-
         Ray groundRay = new Ray(
             new Vector3(
                 characterController.bounds.center.x,
@@ -295,55 +232,40 @@ public class PlayerMotor : MonoBehaviour
         Debug.DrawRay(groundRay.origin, groundRay.direction, Color.red, 5.0f);
 
         return Physics.Raycast(groundRay, 0.2f + 0.1f);
-
     }
-
 
     private void Jump()
     {
-
         animator.SetTrigger("Jump");
         verticalVelocity = JUMP_FORCE;
-
     }
-
 
     private void Slide()
     {
-
         animator.SetTrigger("Slide");
         ShrinkCharacterController();
-
     }
-
 
     private void ShrinkCharacterController()
     {
-
         isSliding = true;
 
         characterController.center = new Vector3(characterController.center.x, characterController.center.y / 2, characterController.center.z);
         characterController.height /= 2;
 
         Invoke("RevertCharacterController", SLIDE_DURATION);
-
     }
-
 
     private void RevertCharacterController()
     {
-
         characterController.center = new Vector3(characterController.center.x, CHARACTER_CONTROLLER_ORIGINAL_CENTER_Y, characterController.center.z);
         characterController.height = CHARACTER_CONTROLLER_ORIGINAL_HEIGHT;
 
         isSliding = false;
-
     }
-
 
     public void Die()
     {
-
         didDie = true;
 
         terrainManager.IsScrolling = false;
@@ -352,8 +274,6 @@ public class PlayerMotor : MonoBehaviour
         deathMenu.Die();
 
         animator.SetTrigger("Die");
-
     }
-
 
 }
