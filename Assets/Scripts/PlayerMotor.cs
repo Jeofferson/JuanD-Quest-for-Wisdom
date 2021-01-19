@@ -142,7 +142,15 @@ public class PlayerMotor : MonoBehaviour
 
     private void MoveLane(bool isGoingRight)
     {
-        desiredLane += isGoingRight ? 1 : -1;
+        if (!isGoingRight)
+        {
+            desiredLane--;
+        }
+        else
+        {
+            desiredLane++;
+        }
+
         desiredLane = Mathf.Clamp(desiredLane, 0, 2);
     }
 
@@ -171,7 +179,7 @@ public class PlayerMotor : MonoBehaviour
 
         if (isGrounded)
         {
-            verticalVelocity = -0.1f;
+            verticalVelocity = -.1f;
 
             if (MobileInput.swipeUp)
             {
@@ -236,6 +244,11 @@ public class PlayerMotor : MonoBehaviour
 
     private void Jump()
     {
+        if (isSliding)
+        {
+            RevertCharacterController();
+        }
+
         animator.SetTrigger("Jump");
         verticalVelocity = JUMP_FORCE;
     }
